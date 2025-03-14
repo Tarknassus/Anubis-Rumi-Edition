@@ -1,37 +1,40 @@
-{{ $light := resources.Get "css/light.css" }}
-{{ $dark := resources.Get "css/dark.css" }}
-
-{{ $style := "light-without-switcher" }}
-{{ if and (isset site.Params "style") (ne site.Params.style "") }}
-    {{ $style = site.Params.style | lower }}
-{{ end }}
-
-{{ if eq $style "dark-without-switcher" }}
 :root {
-    {{ $dark.Content }}
+/* Forcing a light style instead of choice. */ 
+--font-color: #333;
+--bg-color: #fff;
+
+--link-color:#1d60a3;
+--link-state-color:#a31d1d;
+--link-state-border-color: rgba(163, 29, 29, .5);
+
+--thead-bg-color: lightgrey;
+--table-border-color: lightgrey;
+
+--nav-bg-color: #fafafa;
+--nav-link-color: #696969;
+
+--pre-color: #333;
+--pre-bg-color: #f1f1f1;
+
+--bq-color: #ccc;
+--hr-color: #ccc;
+
+--pagination-bg-color: #fafafa;
+--pagination-link-color: #696969;
+
+--post-info-color: grey;
+
+--switcher-color: #fff;
+--switcher-bg-color: #333; 
+
+--svg-color: #333;
+--svg-state-color: #a31d1d;
+ 
 }
-
-{{ else }}
-
-{{ $light.Content }}
-
-{{ if eq $style "auto-without-switcher" }}
-@media (prefers-color-scheme: dark) {
-    :root {
-        {{ $dark.Content }}
-    }
-}
-{{ else if ne $style "light-without-switcher" }}
-[data-theme="dark"] {
-    {{ $dark.Content }}
-}
-{{ end }}
-
-{{ end }}
 
 /* Basic */
 html {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'minion-3', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     /* 1 */
     -ms-text-size-adjust: 100%;
     /* 2 */
@@ -41,7 +44,7 @@ html {
 
 body {
     margin: 0;
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     color: var(--font-color);
@@ -64,7 +67,7 @@ section {
 }
 
 .container {
-    max-width: 42em;
+    max-width: 46em;
     margin: 0 auto;
 }
 
