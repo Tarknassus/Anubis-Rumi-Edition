@@ -44,6 +44,9 @@
 </noscript>
 {{end}}
 
+<!-- Add Adobe Fonts -->
+<link rel="stylesheet" href="https://use.typekit.net/bqt6ope.css">
+<!-- End -->
 {{ partial "resource.html" (dict "context" . "type" "css" "filename" "css/main.css") }}
 
 {{ if .Site.Params.copyCodeButton | default true }}
